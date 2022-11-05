@@ -1,6 +1,9 @@
-package com.tangledbytes.xlog;
+package com.tangledbytes.libtb.log;
 
 import android.util.Log;
+
+import com.tangledbytes.libtb.Constants;
+import com.tangledbytes.libtb.FileUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +15,7 @@ import java.util.Locale;
 /**
  * <b>NOTE: Don't do any logging in this class as it may send application in infinite loop</b>
  */
-public final class LogWriter {
+final class LogWriter {
     public static final String LOG_FILE_NAME = "appLog.log";
 
     private static final String SEPARATOR = " ";
@@ -34,7 +37,7 @@ public final class LogWriter {
         StackTraceElement[] stacks = Thread.currentThread().getStackTrace();
         for (int i = 0; i < stacks.length; i++) {
             StackTraceElement stack = stacks[i];
-            if (stack.getMethodName().equals("___01234567890_qwerty_uiop_ASDF_ghjkl_0987654321")) {
+            if (stack.getMethodName().equals("___some_random_name_it_must_be_unique_name__dfjfdsleuruewir489375fdjklasjfkjacndnbfjker70987654321")) {
                 return stacks[i + 6];
             }
         }
@@ -86,7 +89,7 @@ public final class LogWriter {
             logLine.append(SEPARATOR);
             logLine.append(tag);
 
-            if (AppConstants.EXTREME_LOGGING) {
+            if (Constants.EXTREME_LOGGING) {
                 // Parse class name, method name, file name and line number
                 logLine.append(SEPARATOR);
                 StackTraceElement stackElement = getStackTraceElement();

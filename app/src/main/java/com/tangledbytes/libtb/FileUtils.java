@@ -1,4 +1,4 @@
-package com.tangledbytes.xlog;
+package com.tangledbytes.libtb;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,16 +36,16 @@ public class FileUtils {
     public static String read(File file) throws IOException {
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
-        String data = "";
+        StringBuilder data = new StringBuilder();
         String line = null;
         while((line = br.readLine()) != null)
-            data += "\n" + line;
+            data.append("\n").append(line);
         br.close();
         fr.close();
 
         // Remove the extra line that was added in first iteration of loop
-        if(!data.isEmpty())
-            data = data.substring(1);
-        return data;
+        if(data.length() > 0)
+            data = new StringBuilder(data.substring(1));
+        return data.toString();
     }
 }
