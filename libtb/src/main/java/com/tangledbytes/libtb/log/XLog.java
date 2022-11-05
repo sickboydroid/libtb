@@ -3,7 +3,6 @@ package com.tangledbytes.libtb.log;
 import android.util.Log;
 
 import com.tangledbytes.libtb.Constants;
-import com.tangledbytes.libtb.log.LogWriter;
 
 import java.io.File;
 
